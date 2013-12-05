@@ -17,6 +17,7 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    render 'show', layout: 'hello'
   end
 
   # GET /students/new

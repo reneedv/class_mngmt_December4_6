@@ -1,13 +1,10 @@
-<h1>Listing students</h1>
+<h1>My Students</h1>
 
 <table>
   <thead>
     <tr>
       <th>Full name</th>
       <th>Title</th>
-      <th>Bio</th>
-      <th>Age</th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -16,11 +13,10 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><%= student.full_name %></td>
+        <td><%= link_to student.full_name, student %></td>
         <td><%= student.title %></td>
-        <td><%= truncate(student.bio, length: 10) %></td>
-        <td><%= student.age %></td>
-        <td><%= link_to 'Show', student %></td>
+       <td><%= display_bio student %></td>
+      <!--   <td><%= student.age %></td> -->
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
