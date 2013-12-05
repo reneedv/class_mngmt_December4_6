@@ -1,3 +1,5 @@
 class Student < ActiveRecord::Base
-  has_many :courses, class_name: Course, foreign_key: :student_id
+  #has_many :courses
+  has_many :course_registrations, dependent: :destroy
+  has_many :courses, through: :course_registrations
 end
