@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_student!
   # GET /assignments
   # GET /assignments.json
   def index

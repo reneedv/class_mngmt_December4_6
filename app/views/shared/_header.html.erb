@@ -1,1 +1,6 @@
-<h3> <%= t 'hello' %> the time is <%= Time.now %></h3>
+<% if current_student %>
+  You are logged in as: <%= current_student.email %> from: <%= current_student.current_sign_in_ip %> 
+  <%= link_to 'Logout', destroy_student_session_path, method: :delete %>
+<% else %>
+<%= link_to 'Login', new_student_session_path %>
+<% end %>
