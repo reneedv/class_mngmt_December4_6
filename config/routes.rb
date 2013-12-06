@@ -1,7 +1,9 @@
 ClassMngmt::Application.routes.draw do
+  resources :assignments
+
   resources :students
 
-  root to: 'students#index'
+  root to: 'assignments#index'
 
   namespace :api do
     resources :students
