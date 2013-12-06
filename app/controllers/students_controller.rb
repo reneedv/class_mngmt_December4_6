@@ -4,6 +4,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
+    I18n.locale = 'en'
     @students = Student.all
 
     respond_to do |format|
@@ -22,6 +23,7 @@ class StudentsController < ApplicationController
 
   # GET /students/new
   def new
+    I18n.locale = 'fr'
     @student = Student.new
   end
 
@@ -36,6 +38,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
+        WelcomeMailer.welcome_student(@student).deliver
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render action: 'show', status: :created, location: @student }
       else

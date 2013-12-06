@@ -6,8 +6,10 @@ class Student < ActiveRecord::Base
   #validates_presence_of :email
   validates :email, presence: true, 
                     format: { with: /\w+@\w+\.\w+/, 
-                    message: 'format is bad' }
+                    message: I18n.t('email_format_msg') }
   before_create :set_defaults
+
+  scope :renee, -> { where(full_name: 'Renee') }
 
 private
   def set_defaults
